@@ -42,6 +42,7 @@ public class SocketClient {
             PrintWriter pw = new PrintWriter(socket.getOutputStream());
             pw.print(msg);
             pw.close();
+            socket.close();
         } catch (java.io.IOException e) {
             System.err.print(e);
         } finally {
@@ -52,6 +53,7 @@ public class SocketClient {
     public static void main (String ... args){
         SocketClient sc = new SocketClient("127.0.0.1", 1025);
         sc.writeMsg("Client test");
+
 
     }
 }

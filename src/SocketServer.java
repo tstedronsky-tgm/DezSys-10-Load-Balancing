@@ -58,6 +58,7 @@ public class SocketServer extends Thread{
                 Socket client = ss.accept();
                 BufferedReader br = new BufferedReader(new InputStreamReader(client.getInputStream()));
                 data.add(br.readLine());
+
                 System.out.println(data.get(data.size()-1));
                 br.close();
                 client.close();
