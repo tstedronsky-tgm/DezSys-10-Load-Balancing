@@ -1,11 +1,10 @@
-import java.io.BufferedWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
 
 /**
  * Created by fusions on 12.02.16.
  */
-public class SocketControl {
+public class SocketClient {
     private String host;
     private int port;
 
@@ -31,8 +30,9 @@ public class SocketControl {
      * @param addr ip addr of the service endpoint
      * @param port port of the service endpoint
      */
-    public SocketControl(String addr, int port){
-
+    public SocketClient(String addr, int port){
+        this.host=addr;
+        this.port = port;
     }
 
     public void writeMsg(String msg){
@@ -45,7 +45,13 @@ public class SocketControl {
         } catch (java.io.IOException e) {
             System.err.print(e);
         } finally {
-            socket.close();
+
         }
+    }
+
+    public static void main (String ... args){
+        SocketClient sc = new SocketClient("127.0.0.1", 1025);
+        sc.writeMsg("Client test");
+
     }
 }
