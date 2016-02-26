@@ -1,4 +1,7 @@
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -13,6 +16,7 @@ public class Loadbalancer extends Thread{
     private ServerSocket clientRecvSocket;
     public boolean serverRunning=true;
     public boolean clientRunning=true;
+
 
 
     public Loadbalancer(){
@@ -31,12 +35,25 @@ public class Loadbalancer extends Thread{
         while (clientRunning){
             try {
                 Socket cs = clientRecvSocket.accept();
+                BufferedReader br = new BufferedReader(new InputStreamReader(cs.getInputStream()));
+                String data =br.readLine();
+                try {
+                    Socket socket = new Socket(this.serverIps.get(0),  1025);
+                    PrintWriter pw = new PrintWriter(socket.getOutputStream());
+                    pw.print(data);
+                    pw.close();
+                    socket.close();
+                } catch (java.io.IOException e) {
+                    System.err.print(e);
+                } finally {
+
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
     }
+
 
 
     class ListingForServerThread extends Thread{
@@ -54,6 +71,10 @@ public class Loadbalancer extends Thread{
                 }
             }
         }
+    }
 
+    public static void main (String ... args){
+        Loadbalancer lb = new Loadbalancer();
+        lb.start();
     }
 }
