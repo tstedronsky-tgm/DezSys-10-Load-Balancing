@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -48,6 +49,10 @@ public class SocketServer extends Thread{
     public void regAtLB(String ipOfLB){
         try {
             Socket s = new Socket(ipOfLB,8888);
+            s.getOutputStream();
+            PrintWriter pw = new PrintWriter(s.getOutputStream());
+            pw.print(this.port);
+            pw.close();
             s.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -56,9 +61,11 @@ public class SocketServer extends Thread{
 
 
     public static void main(String ... args){
-        SocketServer ss = new SocketServer("0.0.0.0",1025);
-        ss.start();
-        ss.regAtLB("10.0.104.151");
+        for(int i=0; i<3;++i) {
+            SocketServer ss = new SocketServer("0.0.0.0", i + 1026);
+            ss.start();
+            ss.regAtLB("10.0.104.151");
+        }
     }
 
 
