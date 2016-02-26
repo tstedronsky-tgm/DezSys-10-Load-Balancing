@@ -45,9 +45,20 @@ public class SocketServer extends Thread{
 
     }
 
+    public void regAtLB(String ipOfLB){
+        try {
+            Socket s = new Socket(ipOfLB,8888);
+            s.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public static void main(String ... args){
-        new SocketServer("0.0.0.0",1025).start();
+        SocketServer ss = new SocketServer("0.0.0.0",1025);
+        ss.start();
+        ss.regAtLB("10.0.104.151");
     }
 
 
