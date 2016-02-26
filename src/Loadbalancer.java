@@ -19,7 +19,7 @@ public class Loadbalancer extends Thread{
         try {
             serverRegSocket = new ServerSocket(SERVER_REG_PORT);
             clientRecvSocket = new ServerSocket(CLIENT_RECV_PORT);
-
+            new ListingForServerThread().start();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -31,7 +31,6 @@ public class Loadbalancer extends Thread{
         while (clientRunning){
             try {
                 Socket cs = clientRecvSocket.accept();
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
