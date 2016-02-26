@@ -62,10 +62,12 @@ public class Loadbalancer extends Thread{
             while (serverRunning) {
                 try {
                     Socket sc = serverRegSocket.accept();
-                    String ip = sc.getRemoteSocketAddress().toString();
+                    String ip = sc.getRemoteSocketAddress().toString().replace("/","").split(":")[0];
                     if(!serverIps.contains(ip)){
                         serverIps.add(ip);
                     }
+                    System.out.println(serverIps.get(0));
+                    sc.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
