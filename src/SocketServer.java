@@ -64,7 +64,7 @@ public class SocketServer extends Thread{
         for(int i=0; i<3;++i) {
             SocketServer ss = new SocketServer("0.0.0.0", i + 1026);
             ss.start();
-            ss.regAtLB("10.0.104.151");
+            ss.regAtLB("10.0.107.52");
         }
     }
 
@@ -76,7 +76,7 @@ public class SocketServer extends Thread{
                 Socket client = ss.accept();
                 BufferedReader br = new BufferedReader(new InputStreamReader(client.getInputStream()));
                 data.add(br.readLine());
-                System.out.println(data.get(data.size()-1));
+                System.out.println("Port "+ port +"\tdata: "+ data.get(data.size()-1));
                 br.close();
                 client.close();
             } catch (IOException e) {

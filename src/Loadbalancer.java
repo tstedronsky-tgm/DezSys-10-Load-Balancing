@@ -38,7 +38,7 @@ public class Loadbalancer extends Thread{
                 BufferedReader br = new BufferedReader(new InputStreamReader(cs.getInputStream()));
                 String data =br.readLine();
                 try {
-                    Socket socket = new Socket(this.serverIps.get(0),  1025);
+                    Socket socket = new Socket(this.serverIps.get(0).split(":")[0], Integer.parseInt(serverIps.get(0).split(":")[1]));
                     PrintWriter pw = new PrintWriter(socket.getOutputStream());
                     pw.print(data);
                     pw.close();
