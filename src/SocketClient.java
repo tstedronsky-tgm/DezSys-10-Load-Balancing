@@ -51,7 +51,9 @@ public class SocketClient {
     }
 
     public static void main (String ... args){
-        SocketClient sc = new SocketClient("", 1025);
-        sc.writeMsg("Client test");
+        for(int i=0; i<10;++i){
+            SocketClient sc = new SocketClient("", 1025);
+            sc.writeMsg(i+"");
+        }
     }
 }

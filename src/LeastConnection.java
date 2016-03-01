@@ -12,7 +12,7 @@ import java.util.HashMap;
  */
 public class LeastConnection extends Thread{
     public static final int SERVER_REG_PORT = 8888, CLIENT_RECV_PORT = 1025;
-    //private ArrayList<String> serverIps = new ArrayList<>();
+
     private HashMap<String, Integer> server = new HashMap<String, Integer>();
     private ServerSocket serverRegSocket;
     private ServerSocket clientRecvSocket;
@@ -49,6 +49,7 @@ public class LeastConnection extends Thread{
                         }
                         if(weiterConnections>=server.get(key)){
                             weiterIp= key;
+                            weiterConnections=server.get(key);
                         }
                         ++i;
                     }
