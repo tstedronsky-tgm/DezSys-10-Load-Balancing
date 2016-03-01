@@ -10,7 +10,7 @@ import java.util.HashMap;
 /**
  * Created by Thomas on 01.03.2016.
  */
-public class LeastConnection extends Thread{
+public class WeightedDistribution extends Thread{
     public static final int SERVER_REG_PORT = 8888, CLIENT_RECV_PORT = 1025;
 
     private HashMap<String, Integer> server = new HashMap<String, Integer>();
@@ -20,7 +20,7 @@ public class LeastConnection extends Thread{
     public boolean clientRunning = true;
 
 
-    public LeastConnection() {
+    public  WeightedDistribution() {
         try {
             serverRegSocket = new ServerSocket(SERVER_REG_PORT);
             clientRecvSocket = new ServerSocket(CLIENT_RECV_PORT);
@@ -105,7 +105,7 @@ public class LeastConnection extends Thread{
     }
 
     public static void main(String... args) {
-        LeastConnection lb = new LeastConnection();
+        WeightedDistribution lb = new  WeightedDistribution();
         lb.start();
     }
 }
