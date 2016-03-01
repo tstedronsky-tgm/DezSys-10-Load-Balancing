@@ -9,14 +9,14 @@ import java.util.ArrayList;
 /**
  * Created by fusions on 12.02.16.
  */
-public class SocketServer extends Thread{
+public class SocketServer2 extends Thread{
     private String listenaddr;
     private int port;
     private ServerSocket ss;
     public boolean running = true;
     private ArrayList<String> data = new ArrayList<>();
 
-    public SocketServer(String listenaddr,int port){
+    public SocketServer2(String listenaddr,int port){
         this.listenaddr = listenaddr;
         this.port = port;
         try {
@@ -61,11 +61,9 @@ public class SocketServer extends Thread{
 
 
     public static void main(String ... args){
-        for(int i=0; i<3;++i) {
-            SocketServer ss = new SocketServer("", i + 1026);
+            SocketServer ss = new SocketServer("", 1030);
             ss.start();
             ss.regAtLB("192.168.0.19");
-        }
     }
 
 
