@@ -58,6 +58,7 @@ public class WeightedDistribution extends Thread{
             if (sharing_sheet[i][2] > sharing_sheet[min_id][2])
                 min_id = i;
         }
+        sharing_sheet[min_id][1]++;
         return min_id;
     }
 
