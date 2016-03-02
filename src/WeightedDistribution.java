@@ -4,11 +4,10 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Created by Thomas on 01.03.2016.
+ * Created by fusions on 01.03.2016.
  */
 public class WeightedDistribution extends Thread{
     public static final int SERVER_REG_PORT = 8888, CLIENT_RECV_PORT = 1025;
@@ -18,8 +17,8 @@ public class WeightedDistribution extends Thread{
     private ServerSocket clientRecvSocket;
     public boolean serverRunning = true;
     public boolean clientRunning = true;
-
-
+    private double[][] sharing_sheet;
+    private int counter = 0;
     public  WeightedDistribution() {
         try {
             serverRegSocket = new ServerSocket(SERVER_REG_PORT);
@@ -30,6 +29,36 @@ public class WeightedDistribution extends Thread{
             e.printStackTrace();
         }
 
+    }
+
+    public WeightedDistribution(double ... auslastungen){
+        this();
+        double sum=0;
+        for (int i = 0; i < auslastungen.length; i++) {
+            sum += auslastungen[i];
+        }
+        if (sum != 1){
+            throw new RuntimeException("Alle Werte zusammen müssen 1 (int) ergeben");
+        }
+        sharing_sheet = new double[auslastungen.length][3];
+        for (int i = 0; i < sharing_sheet.length; i++) {
+            sharing_sheet[i][0] = auslastungen[i];
+            sharing_sheet[i][1] = 0;
+            sharing_sheet[i][2] = auslastungen[i];
+        }
+    }
+
+
+    private synchronized int useAlgo(){
+        for (int i = 0; i <sharing_sheet.length; i++) {
+            sharing_sheet[i][2] = sharing_sheet[i][0] - sharing_sheet[i][1]/counter;
+        }
+        int min_id = 0;
+        for (int i = 0; i < sharing_sheet.length; i++) {
+            if (sharing_sheet[i][2] > sharing_sheet[min_id][2])
+                min_id = i;
+        }
+        return min_id;
     }
 
     public void run() {
