@@ -7,7 +7,10 @@ import java.net.Socket;
 import java.util.ArrayList;
 
 /**
- * Created by fusions on 12.02.16.
+ * Socket Server for Weighted Distribution
+ * @author Thomas Stedronsky
+ * @author Erik Braendli
+ * @version 02-03-2016
  */
 public class SocketServer2 extends Thread{
     private String listenaddr;
@@ -16,6 +19,11 @@ public class SocketServer2 extends Thread{
     public boolean running = true;
     private ArrayList<String> data = new ArrayList<>();
 
+    /**
+     * Constructor
+     * @param listenaddr
+     * @param port
+     */
     public SocketServer2(String listenaddr,int port){
         this.listenaddr = listenaddr;
         this.port = port;
@@ -26,26 +34,44 @@ public class SocketServer2 extends Thread{
             System.err.println("Port is used?");
         }
     }
+
+    /**
+     *
+     * @return listenaddr
+     */
     public String getListenaddr() {
         return listenaddr;
     }
 
+    /**
+     * set the listenaddr
+     * @param listenaddr
+     */
     public void setListenaddr(String listenaddr) {
         this.listenaddr = listenaddr;
     }
 
+    /**
+     * get server port
+     * @return server port
+     */
     public int getPort() {
         return port;
     }
 
+    /**
+     * set port
+     * @param port
+     */
     public void setPort(int port) {
         this.port = port;
     }
 
-    public void startListing(){
-
-    }
-
+    /**
+     * login to server
+     * @param ipOfLB LB IP
+     * @param gewichtung from the server
+     */
     public void regAtLB(String ipOfLB, int gewichtung){
         try {
             Socket s = new Socket(ipOfLB,8888);

@@ -2,7 +2,10 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 /**
- * Created by fusions on 12.02.16.
+ * Socket Client
+ * @author Thomas Stedronsky
+ * @author Erik Braendli
+ * @version 02-03-2016
  */
 public class SocketClient {
     private String host;
@@ -35,6 +38,10 @@ public class SocketClient {
         this.port = port;
     }
 
+    /**
+     * send Message to Server
+     * @param msg Message to server
+     */
     public void writeMsg(String msg){
         Socket socket = null;
         try {

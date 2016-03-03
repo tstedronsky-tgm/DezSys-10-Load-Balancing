@@ -8,7 +8,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Created by Thomas on 01.03.2016.
+ * Load Balancer Lesat Connection
+ * @author Thomas Stedronsky
+ * @author Erik Braendli
+ * @version 02-03-2016
  */
 public class LeastConnection extends Thread{
     public static final int SERVER_REG_PORT = 8888, CLIENT_RECV_PORT = 1025;
@@ -20,6 +23,9 @@ public class LeastConnection extends Thread{
     public boolean sessionPersistance = false;
     public HashMap<String, String> log= new HashMap<String, String>();
 
+    /**
+     * Contstructor
+     */
     public LeastConnection() {
         try {
             serverRegSocket = new ServerSocket(SERVER_REG_PORT);
@@ -32,6 +38,9 @@ public class LeastConnection extends Thread{
 
     }
 
+    /**
+     * run methode
+     */
     public void run() {
         while (clientRunning) {
             try {

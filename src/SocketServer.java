@@ -7,7 +7,10 @@ import java.net.Socket;
 import java.util.ArrayList;
 
 /**
- * Created by fusions on 12.02.16.
+ * Socket Server for Least Connection
+ * @author Thomas Stedronsky
+ * @author Erik Braendli
+ * @version 02-03-2016
  */
 public class SocketServer extends Thread{
     private String listenaddr;
@@ -16,6 +19,11 @@ public class SocketServer extends Thread{
     public boolean running = true;
     private ArrayList<String> data = new ArrayList<>();
 
+    /**
+     * Constructor
+     * @param listenaddr
+     * @param port
+     */
     public SocketServer(String listenaddr,int port){
         this.listenaddr = listenaddr;
         this.port = port;
@@ -26,26 +34,44 @@ public class SocketServer extends Thread{
             System.err.println("Port is used?");
         }
     }
+
+    /**
+     *
+     * @return listenaddr
+     */
     public String getListenaddr() {
         return listenaddr;
     }
 
+    /**
+     * set listenaddr
+     * @param listenaddr server addr
+     */
     public void setListenaddr(String listenaddr) {
         this.listenaddr = listenaddr;
     }
 
+    /**
+     *
+     * @return port
+     */
     public int getPort() {
         return port;
     }
 
+    /**
+     * set server port
+     * @param port server port
+     */
     public void setPort(int port) {
         this.port = port;
     }
 
-    public void startListing(){
 
-    }
-
+    /**
+     * log ad server
+     * @param ipOfLB IP of LB
+     */
     public void regAtLB(String ipOfLB){
         try {
             Socket s = new Socket(ipOfLB,8888);
