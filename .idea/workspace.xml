@@ -69,15 +69,11 @@
       <file leaf-file-name="WeightedDistribution.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/WeightedDistribution.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7906977" vertical-offset="493" max-vertical-offset="2142">
-              <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.94728684" vertical-offset="1769" max-vertical-offset="2482">
+              <caret line="140" column="1" selection-start-line="140" selection-start-column="1" selection-end-line="140" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#488#505#0" expanded="true" />
-                <element signature="e#569#586#0" expanded="true" />
-                <element signature="e#651#668#0" expanded="true" />
-                <element signature="e#888#896#0" expanded="true" />
-                <element signature="e#950#959#0" expanded="true" />
+                <element signature="e#432#449#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -577,7 +573,7 @@
       <workItem from="1456484491463" duration="700000" />
       <workItem from="1456849092020" duration="10723000" />
       <workItem from="1456939752064" duration="1884000" />
-      <workItem from="1456989972369" duration="8575000" />
+      <workItem from="1456989972369" duration="8780000" />
     </task>
     <task id="LOCAL-00001" summary="added dummy">
       <created>1455274950736</created>
@@ -601,7 +597,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30591000" />
+    <option name="totallyTimeSpent" value="30796000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -716,11 +712,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#488#505#0" expanded="true" />
-            <element signature="e#569#586#0" expanded="true" />
-            <element signature="e#651#668#0" expanded="true" />
-            <element signature="e#888#896#0" expanded="true" />
-            <element signature="e#950#959#0" expanded="true" />
+            <element signature="e#432#449#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -777,11 +769,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#488#505#0" expanded="true" />
-            <element signature="e#569#586#0" expanded="true" />
-            <element signature="e#651#668#0" expanded="true" />
-            <element signature="e#888#896#0" expanded="true" />
-            <element signature="e#950#959#0" expanded="true" />
+            <element signature="e#432#449#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1078,15 +1066,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/WeightedDistribution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7906977" vertical-offset="493" max-vertical-offset="2142">
-          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.94728684" vertical-offset="1769" max-vertical-offset="2482">
+          <caret line="140" column="1" selection-start-line="140" selection-start-column="1" selection-end-line="140" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#488#505#0" expanded="true" />
-            <element signature="e#569#586#0" expanded="true" />
-            <element signature="e#651#668#0" expanded="true" />
-            <element signature="e#888#896#0" expanded="true" />
-            <element signature="e#950#959#0" expanded="true" />
+            <element signature="e#432#449#0" expanded="true" />
           </folding>
         </state>
       </provider>
