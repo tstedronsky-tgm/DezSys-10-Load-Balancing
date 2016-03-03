@@ -52,7 +52,7 @@ public class SocketClient {
 
     public static void main (String ... args){
         int port =1025;
-        SocketClient sc = new SocketClient("192.168.0.101", port);
+        SocketClient sc = new SocketClient("10.0.105.170", port);
         for(int i=0; i<10;++i){
             sc.writeMsg(i+"");
         }

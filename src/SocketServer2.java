@@ -63,13 +63,13 @@ public class SocketServer2 extends Thread{
     public static void main(String ... args){
         SocketServer2 ss1 = new SocketServer2("", 1026);
         ss1.start();
-        ss1.regAtLB("192.168.0.101", 5);
+        ss1.regAtLB("10.0.105.170", 5);
         SocketServer2 ss2 = new SocketServer2("", 1027);
         ss2.start();
-        ss2.regAtLB("192.168.0.101", 3);
+        ss2.regAtLB("10.0.105.170", 3);
         SocketServer2 ss3 = new SocketServer2("", 1028);
         ss3.start();
-        ss3.regAtLB("192.168.0.101", 2);
+        ss3.regAtLB("10.0.105.170", 2);
     }
 
 
