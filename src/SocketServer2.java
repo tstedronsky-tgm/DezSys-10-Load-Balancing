@@ -46,12 +46,12 @@ public class SocketServer2 extends Thread{
 
     }
 
-    public void regAtLB(String ipOfLB){
+    public void regAtLB(String ipOfLB, int gewichtung){
         try {
             Socket s = new Socket(ipOfLB,8888);
             s.getOutputStream();
             PrintWriter pw = new PrintWriter(s.getOutputStream());
-            pw.print(this.port);
+            pw.print(this.port+"/"+gewichtung);
             pw.close();
             s.close();
         } catch (IOException e) {
@@ -61,9 +61,15 @@ public class SocketServer2 extends Thread{
 
 
     public static void main(String ... args){
-            SocketServer ss = new SocketServer("", 1030);
-            ss.start();
-            ss.regAtLB("192.168.0.19");
+        SocketServer2 ss1 = new SocketServer2("", 1026);
+        ss1.start();
+        ss1.regAtLB("192.168.0.101", 5);
+        SocketServer2 ss2 = new SocketServer2("", 1027);
+        ss2.start();
+        ss2.regAtLB("192.168.0.101", 3);
+        SocketServer2 ss3 = new SocketServer2("", 1028);
+        ss3.start();
+        ss3.regAtLB("192.168.0.101", 2);
     }
 
 

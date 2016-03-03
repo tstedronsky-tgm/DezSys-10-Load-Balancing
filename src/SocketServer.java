@@ -64,7 +64,7 @@ public class SocketServer extends Thread{
         for(int i=0; i<3;++i) {
             SocketServer ss = new SocketServer("", i + 1026);
             ss.start();
-            ss.regAtLB("192.168.0.19");
+            ss.regAtLB("192.168.0.101");
         }
     }
 

@@ -51,8 +51,9 @@ public class SocketClient {
     }
 
     public static void main (String ... args){
+        int port =1025;
+        SocketClient sc = new SocketClient("192.168.0.101", port);
         for(int i=0; i<10;++i){
-            SocketClient sc = new SocketClient("", 1025);
             sc.writeMsg(i+"");
         }
     }
