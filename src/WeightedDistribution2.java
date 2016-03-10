@@ -155,7 +155,7 @@ public class WeightedDistribution2 extends Thread {
 
     public static void main(String... args) {
 
-        WeightedDistribution2 lb = new WeightedDistribution2(new double[]{0.2,0.4,0.4});
+        WeightedDistribution2 lb = new WeightedDistribution2(new double[]{0.2,0.2,0.2,0.2,0.2});
         lb.start();
     }
 }

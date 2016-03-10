@@ -87,7 +87,7 @@ public class SocketServer extends Thread{
 
 
     public static void main(String ... args){
-        for(int i=0; i<3;++i) {
+        for(int i=0; i<5;++i) {
             SocketServer ss = new SocketServer("127.0.0.1", i + 1026);
             ss.start();
             ss.regAtLB("127.0.0.1");
