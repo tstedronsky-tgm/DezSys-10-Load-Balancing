@@ -77,7 +77,6 @@ public class WeightedDistribution2 extends Thread {
                 min_id = i;
         }
         sharing_sheet[min_id][1]++;
-        counter++;
         statistics[min_id]++;
         return min_id;
     }
@@ -92,13 +91,13 @@ public class WeightedDistribution2 extends Thread {
                 String data = br.readLine();
                 String usedServer;
                 if (sessionPersistance){
-                    if (log.containsKey(cs.getRemoteSocketAddress().toString().replace("/", ""))) {
-                        usedServer = log.get(cs.getRemoteSocketAddress().toString().replace("/", ""));
+                    if (log.containsKey(cs.getRemoteSocketAddress().toString().replace("/", "").split(":")[0])) {
+                        usedServer = log.get(cs.getRemoteSocketAddress().toString().replace("/", "").split(":")[0]);
                     }else {
                         usedServer = server_list[useAlgo()];
-                        log.put(cs.getRemoteSocketAddress().toString().replace("/", ""),usedServer);
+                        log.put(cs.getRemoteSocketAddress().toString().replace("/", "").split(":")[0],usedServer);
                     }
-
+                statistics[]++;
                 }else{
                     usedServer = server_list[useAlgo()];
                 }
@@ -109,7 +108,7 @@ public class WeightedDistribution2 extends Thread {
                 pw.close();
                 wsock.close();
                 cs.close();
-
+                counter++;
                 if (useStats && counter > 100){
                     for (int i = 0; i <statistics.length ; i++) {
                         System.out.println("Server "+server_list[i] + " got "+ statistics[i] + " Connections");
