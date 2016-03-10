@@ -4,7 +4,6 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -51,6 +50,7 @@ public class WeightedDistribution extends Thread{
                         if(i==0){
                             weiterIp=key;
                         }
+                        System.out.println(hoechstens);
                         if(hoechstens>=(server.get(key)/serverGew.get(key))){
                             weiterIp= key;
                             hoechstens=server.get(key)/serverGew.get(key);
